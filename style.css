@@ -1,5 +1,5 @@
-/* Core Configurations */
-* {
+
+ {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -17,9 +17,6 @@ body {
     position: relative;
 }
 
-/* ----------------------------------------------------
-   PARADIGM 1: LIQUID GLASS STYLE BACKGROUND & HUB
----------------------------------------------------- */
 .liquid-glass-bg {
     background: linear-gradient(135deg, #022c22 0%, #0f172a 50%, #020617 100%);
 }
@@ -175,9 +172,6 @@ body {
     text-transform: uppercase;
 }
 
-/* ----------------------------------------------------
-   PARADIGM 2: MINIMALISM INPUT FIELDS
----------------------------------------------------- */
 .minimal-input {
     background: transparent;
     border: none;
@@ -243,9 +237,6 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* ----------------------------------------------------
-   PARADIGM 3: CLAYMORPHISM ENHANCED MODAL ARCHITECTURE
----------------------------------------------------- */
 .modal-overlay {
     position: fixed;
     inset: 0;
@@ -325,9 +316,6 @@ body {
     border-radius: 12px;
 }
 
-/* ----------------------------------------------------
-   PARADIGM 4: SKEUOMORPHISM PHYSICAL NODES
----------------------------------------------------- */
 .skeuo-container {
     background: #e2e8f0;
     border-radius: 16px;
@@ -391,9 +379,6 @@ body {
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* ----------------------------------------------------
-   PARADIGM 5: NEO-BRUTALISM DYNAMIC WARNINGS
----------------------------------------------------- */
 .neo-brutal-alert {
     position: fixed;
     bottom: 24px;
