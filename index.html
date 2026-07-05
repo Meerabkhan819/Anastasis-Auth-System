@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication System using Firebase</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="liquid-glass-bg">
+
+    <div class="liquid-orb"></div>
+    <div class="liquid-orb-2"></div>
+
+    <div class="glass-card">
+        
+        <div class="brand-header">
+            <div class="logo-badge">
+                <span class="logo-alpha">A</span>
+            </div>
+            <h1 class="brand-title">ANASTASIS</h1>
+            <p class="brand-subtitle">TECHNOLOGIES PVT LTD</p>
+            <div class="brand-tagline">
+                RESEARCH &bull; INNOVATION &bull; RECURSION &bull; REVIVAL &bull; IMPACT
+            </div>
+        </div>
+
+        <div class="tab-toggle-row">
+            <button id="tab-login" class="tab-btn active">SIGN IN</button>
+            <button id="tab-register" class="tab-btn">SIGN UP</button>
+        </div>
+
+        <form id="auth-form" class="form-structure">
+            <div class="input-group">
+                <label class="input-label">Cloud Node Identity (Email)</label>
+                <input type="email" id="auth-email" required class="minimal-input" placeholder="username@anastasis.com">
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">Cryptographic Key (Password)</label>
+                <input type="password" id="auth-password" required class="minimal-input" placeholder="••••••••••••">
+            </div>
+
+            <div class="recovery-container" id="forgot-password-container">
+                <button type="button" id="btn-forgot" class="recover-link">Recover Password Link?</button>
+            </div>
+
+            <button type="submit" id="btn-submit" class="action-trigger-btn">
+                AUTHORIZE NODE
+            </button>
+        </form>
+
+        <div class="footer-spec-row">
+            <p class="spec-text">System Release Spec: 15-05-2026</p>
+        </div>
+    </div>
+
+    <div id="success-modal" class="modal-overlay shadow-hidden">
+        <div class="clay-modal">
+            <div class="success-icon-wrapper">
+                <svg class="success-check-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+            
+            <h3 class="modal-status-heading">ACCESS GRANTED</h3>
+            <p id="success-message" class="modal-status-text"></p>
+            
+            <div class="skeuo-container">
+                <label class="skeuo-label">Hardware Token Activation</label>
+                <input type="text" class="skeuo-input" value="8656" readonly>
+                <button type="button" id="btn-skeuo-close" class="skeuo-btn">
+                    Verify Physical Node
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="error-alert" class="neo-brutal-alert shadow-hidden">
+        <div class="alert-content-row">
+            <span class="alert-emoticon">⚠️</span>
+            <div>
+                <h4 class="alert-title-text">Security Pipeline Alert</h4>
+                <p id="error-message" class="alert-desc-text"></p>
+            </div>
+        </div>
+        <div class="alert-action-row">
+            <button id="btn-error-close" class="neo-btn-close">Dismiss</button>
+        </div>
+    </div>
+
+    <script type="module" src="auth.js"></script>
+</body>
+</html>
