@@ -5,16 +5,16 @@ import {
     sendPasswordResetEmail
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-
 let isLoginState = true;
 
+// DOM Triggers Setup
 const authForm = document.getElementById('auth-form');
 const emailInput = document.getElementById('auth-email');
 const passwordInput = document.getElementById('auth-password');
 const submitBtn = document.getElementById('btn-submit');
+const formSubHeading = document.getElementById('form-sub-heading');
 const tabLogin = document.getElementById('tab-login');
 const tabRegister = document.getElementById('tab-register');
-const forgotContainer = document.getElementById('forgot-password-container');
 const btnForgot = document.getElementById('btn-forgot');
 
 const navAuth = document.getElementById('nav-auth');
@@ -32,7 +32,6 @@ const errorAlert = document.getElementById('error-alert');
 const errorTxt = document.getElementById('error-message');
 const btnErrorClose = document.getElementById('btn-error-close');
 
-// Core Launch Feedback Handlers
 function launchSuccess(msg, customTitle = "LOGIN SUCCESSFUL") {
     const headingElement = document.querySelector('.modal-status-heading');
     if (headingElement) headingElement.innerText = customTitle;
@@ -46,78 +45,79 @@ function launchSuccess(msg, customTitle = "LOGIN SUCCESSFUL") {
 function launchError(err) {
     if (errorTxt) errorTxt.innerText = err;
     if (errorAlert) {
-        errorAlert.classList.remove('pointer-events-none', 'translate-y-4');
-        errorAlert.classList.add('opacity-100', 'translate-y-0');
+        errorAlert.classList.remove('pointer-events-none');
+        errorAlert.classList.add('opacity-100');
         setTimeout(() => { dismissError(); }, 6000);
     }
 }
 
 function dismissError() {
     if (errorAlert) {
-        errorAlert.classList.add('pointer-events-none', 'translate-y-4');
-        errorAlert.classList.remove('opacity-100', 'translate-y-0');
+        errorAlert.classList.add('pointer-events-none');
+        errorAlert.classList.remove('opacity-100');
     }
 }
 
-// Global DOM Click Binding Initializer (Guarantees execution on GitHub Pages)
-function setupEventHandlers() {
+function setupBindings() {
+    // Left Banner Checkmarks Data Core Actions
     if (btnResearch) {
-        btnResearch.addEventListener('click', (e) => {
+        btnResearch.onclick = (e) => {
             e.preventDefault();
-            launchSuccess("ANASTASIS BUSINESS SOLUTIONS PVT LTD is a 7.10 years old legal corporation incorporated on Sept 07, 2018[cite: 1]. Registered under Class: Private Company limited by Shares.", "RESEARCH DIRECTIVE");
-        });
+            launchSuccess("ANASTASIS BUSINESS SOLUTIONS PVT LTD is a 7.10 years old legal corporation incorporated on Sept 07, 2018. Registered under Class: Company limited by Shares.", "RESEARCH DIRECTIVE");
+        };
     }
 
     if (btnInnovation) {
-        btnInnovation.addEventListener('click', (e) => {
+        btnInnovation.onclick = (e) => {
             e.preventDefault();
             launchSuccess("Authorized Share Capital cluster node setup stands at ₹1,00,000 INR with Paid-up capital allocations. Financial health is structural.", "INNOVATION DIRECTIVE");
-        });
+        };
     }
 
     if (btnRecursion) {
-        btnRecursion.addEventListener('click', (e) => {
+        btnRecursion.onclick = (e) => {
             e.preventDefault();
-            launchSuccess("Current status registered within ROC Delhi registry parameters is formally ACTIVE[cite: 1]. Secure nodes completely synced.", "RECURSION DIRECTIVE");
-        });
+            launchSuccess("Current status registered within ROC Delhi registry parameters is formally ACTIVE. Secure nodes completely synced.", "SECURITY PARAMETER");
+        };
     }
 
     if (navAuth) {
-        navAuth.addEventListener('click', (e) => {
+        navAuth.onclick = (e) => {
             e.preventDefault();
             if (tabLogin) tabLogin.click();
-        });
+        };
     }
 
     if (navUtility) {
-        navUtility.addEventListener('click', (e) => {
+        navUtility.onclick = (e) => {
             e.preventDefault();
             if (tabRegister) tabRegister.click();
-        });
+        };
     }
 
+    // Toggle Tab Operations
     if (tabLogin && tabRegister) {
-        tabLogin.addEventListener('click', (e) => {
+        tabLogin.onclick = (e) => {
             e.preventDefault();
             isLoginState = true;
             tabLogin.className = "text-base font-bold tracking-wider transition-all duration-300 uppercase font-['Space_Grotesk'] pb-2 tab-btn-active";
             tabRegister.className = "text-base font-bold tracking-wider transition-all duration-300 uppercase font-['Space_Grotesk'] pb-2 tab-btn-inactive";
-            if (submitBtn) submitBtn.innerText = "AUTHORIZE SYSTEM NODE";
-            if (forgotContainer) forgotContainer.style.visibility = "visible";
-        });
+            if (submitBtn) submitBtn.innerText = "Login";
+            if (formSubHeading) formSubHeading.innerText = "Sign in to continue";
+        };
 
-        tabRegister.addEventListener('click', (e) => {
+        tabRegister.onclick = (e) => {
             e.preventDefault();
             isLoginState = false;
             tabRegister.className = "text-base font-bold tracking-wider transition-all duration-300 uppercase font-['Space_Grotesk'] pb-2 tab-btn-active";
             tabLogin.className = "text-base font-bold tracking-wider transition-all duration-300 uppercase font-['Space_Grotesk'] pb-2 tab-btn-inactive";
-            if (submitBtn) submitBtn.innerText = "PROVISION INITIAL IDENTITY";
-            if (forgotContainer) forgotContainer.style.visibility = "hidden";
-        });
+            if (submitBtn) submitBtn.innerText = "Sign Up";
+            if (formSubHeading) formSubHeading.innerText = "Create your new gateway identity";
+        };
     }
 
     if (btnForgot) {
-        btnForgot.addEventListener('click', async (e) => {
+        btnForgot.onclick = async (e) => {
             e.preventDefault();
             const email = emailInput.value.trim();
             if (!email) {
@@ -130,28 +130,28 @@ function setupEventHandlers() {
             } catch (error) {
                 launchError(error.message);
             }
-        });
+        };
     }
 
     if (btnSkeuoClose) {
-        btnSkeuoClose.addEventListener('click', (e) => {
+        btnSkeuoClose.onclick = (e) => {
             e.preventDefault();
             if (successModal) {
                 successModal.classList.remove('opacity-100', 'scale-100');
                 successModal.classList.add('pointer-events-none', 'scale-95');
             }
-        });
+        };
     }
 
     if (btnErrorClose) {
-        btnErrorClose.addEventListener('click', (e) => {
+        btnErrorClose.onclick = (e) => {
             e.preventDefault();
             dismissError();
-        });
+        };
     }
 
     if (authForm) {
-        authForm.addEventListener('submit', async (e) => {
+        authForm.onsubmit = async (e) => {
             e.preventDefault();
             const email = emailInput.value.trim();
             const password = passwordInput.value;
@@ -167,7 +167,7 @@ function setupEventHandlers() {
                     launchSuccess(`Session synchronization completed for cloud identity: ${userCredential.user.email}`, "LOGIN SUCCESSFUL");
                 } else {
                     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-                    launchSuccess(`New Identity successfully registered. Session sync complete!`, "LOGIN SUCCESSFUL");
+                    launchSuccess(`New Identity successfully registered. Redirecting to login session...`, "REGISTRATION SUCCESSFUL");
                 }
                 authForm.reset();
             } catch (error) {
@@ -179,7 +179,8 @@ function setupEventHandlers() {
                     launchError(error.message);
                 }
             }
-        });
+        };
     }
 }
-setupEventHandlers();
+
+setupBindings();
