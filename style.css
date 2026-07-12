@@ -1,4 +1,4 @@
-/* Core Styling Matrix Hooks */
+/* Core Layout Resets */
 * {
     margin: 0;
     padding: 0;
@@ -6,155 +6,91 @@
 }
 
 .liquid-glass-bg {
-    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 50%, #cbd5e1 100%) !important;
+    background: linear-gradient(135deg, #f8fcfb 0%, #f1f9f4 50%, #e2f0e6 100%) !important;
 }
 
-.glass-card {
-    background: rgba(255, 255, 255, 0.45) !important;
-    border: 1px solid rgba(255, 255, 255, 0.7) !important;
-    box-shadow: 0 30px 60px -15px rgba(15, 23, 42, 0.08), inset 0 1px 2px rgba(255, 255, 255, 0.8) !important;
-}
-
-/* Tab Active/Inactive States */
+/* Tab Configuration Properties Recreated */
 .tab-btn-active {
-    color: #0f172a !important;
-    border-bottom: 3px solid #10b981 !important;
+    color: #87ffd7 !important;
+    border-bottom: 3px solid #63a590 !important;
     opacity: 1 !important;
 }
 
 .tab-btn-inactive {
-    color: #94a3b8 !important;
+    color: #6882a7 !important;
     border-bottom: 3px solid transparent !important;
     opacity: 0.7 !important;
 }
 
-/* Background Animated Morphing Fluid Orbs */
+/* Custom Vector Floating Animation */
+.logo-container-floating {
+    animation: floatingLogo 3.5s infinite ease-in-out;
+}
+
+@keyframes floatingLogo {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* Background Animated Fluid Orbs */
 .liquid-orb-1 {
-    width: 650px;
-    height: 650px;
-    top: -15%;
-    right: -5%;
+    width: 600px;
+    height: 600px;
+    top: -20%;
+    right: -10%;
     border-radius: 43% 57% 70% 30% / 45% 45% 55% 55%;
-    background: linear-gradient(135deg, rgba(52, 211, 153, 0.22) 0%, rgba(14, 165, 233, 0.08) 100%);
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(14, 165, 233, 0.05) 100%);
     filter: blur(100px);
-    animation: orbMorphing 14s infinite alternate ease-in-out;
+    animation: orbMorphing 15s infinite alternate ease-in-out;
     z-index: 0 !important;
-    pointer-events: none !important;
 }
 
 .liquid-orb-2 {
     width: 500px;
     height: 500px;
-    bottom: -10%;
-    left: -5%;
+    bottom: -15%;
+    left: -10%;
     border-radius: 70% 30% 52% 48% / 60% 40% 60% 40%;
-    background: linear-gradient(135deg, rgba(20, 184, 166, 0.18) 0%, rgba(148, 163, 184, 0.1) 100%);
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.12) 0%, rgba(148, 163, 184, 0.05) 100%);
     filter: blur(90px);
-    animation: orbMorphing 18s infinite alternate-reverse ease-in-out;
+    animation: orbMorphing 20s infinite alternate-reverse ease-in-out;
     z-index: 0 !important;
-    pointer-events: none !important;
 }
 
 @keyframes orbMorphing {
-    0% { transform: translate(0, 0) scale(1) rotate(0deg); border-radius: 43% 57% 70% 30% / 45% 45% 55% 55%; }
-    50% { transform: translate(40px, -20px) scale(1.05) rotate(90deg); border-radius: 60% 40% 55% 45% / 50% 50% 60% 40%; }
-    100% { transform: translate(-20px, 30px) scale(0.95) rotate(180deg); border-radius: 50% 50% 40% 60% / 45% 55% 50% 55%; }
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(30px, -30px) scale(1.05); }
 }
 
-/* Keyframe Layout Animations */
-.animate-fade-in {
-    animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
+/* Sequential Animation Entrance Rules */
+.animate-fade-in { animation: fadeIn 0.6s ease forwards; }
+.animate-slide-right { animation: slideRight 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-slide-left { animation: slideLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
-.animate-slide-right {
-    animation: slideRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideRight { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes slideLeft { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
 
-.animate-slide-left {
-    animation: slideLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideRight {
-    from { opacity: 0; transform: translateX(-40px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes slideLeft {
-    from { opacity: 0; transform: translateX(40px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes shimmer {
-    100% { transform: translateX(100%); }
-}
-
+/* Form Control Focus Highlights */
 .minimal-input {
-    background: rgba(255, 255, 255, 0.8) !important;
-    border: 1px solid #e2e8f0 !important;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.25s ease;
 }
 .minimal-input:focus {
-    background: rgba(255, 255, 255, 0.98) !important;
-    border-color: #10b981 !important;
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+    border-color: #059669 !important;
+    box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.12);
 }
 
-.skeuo-panel {
-    background: #f8fafc;
-    border-color: #e2e8f0 #cbd5e1 #cbd5e1 #e2e8f0;
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
-}
-.skeuo-display {
-    background: #f1f5f9 !important;
-    border: 1px solid #cbd5e1;
-    text-shadow: 0 0 4px rgba(16, 185, 129, 0.3);
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
-}
-.skeuo-push-btn {
-    background: linear-gradient(180deg, #10b981 0%, #059669 100%);
-    border: 1px solid #047857;
-    border-top: 1px solid #34d399;
-    box-shadow: 0 3px 0 #024e37, 0 4px 10px rgba(0,0,0,0.1);
-}
-.skeuo-push-btn:active {
-    transform: translateY(2px);
-}
-
-.neo-brutal-alert {
-    background: #ffffff !important;
-    border: 2px solid #000000 !important;
-    box-shadow: 4px 4px 0px 0px #000000 !important;
-}
-.neo-brutal-close-btn {
-    border: 1px solid #000000 !important;
-    box-shadow: 1px 1px 0px 0px #000000 !important;
-}
-
-
-header, main, footer, button, input, form, div, span, label, i {
+/* Structural Components Overlays Fixes */
+header, main, footer, button, input, form {
+    position: relative !important;
     z-index: 50 !important;
     pointer-events: auto !important;
 }
 
-form button, form input, #btn-forgot, #tab-login, #tab-register, [id^="btn-directive-"] {
-    cursor: pointer !important;
-    pointer-events: auto !important;
-}
-
-#success-modal.opacity-100 {
+#success-modal.opacity-100, #error-alert.opacity-100 {
     opacity: 1 !important;
     transform: scale(1) !important;
-    pointer-events: auto !important;
-    z-index: 9999 !important;
-}
-#error-alert.opacity-100 {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
     pointer-events: auto !important;
     z-index: 9999 !important;
 }
